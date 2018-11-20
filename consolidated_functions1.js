@@ -50,11 +50,11 @@ function getNumberOfRepresentatives(data) {
 
 function numberOfSenatorsInTenPercent(data) {
     allMembers = data.results[0].members;
-    
+
     var list_of_all_members = [];
-   
+
     for (var i = 0; i < allMembers.length; i++) {
-       
+
         var firstName = allMembers[i].first_name;
         var middleName = allMembers[i].middle_name;
         var lastName = allMembers[i].last_name;
@@ -64,14 +64,14 @@ function numberOfSenatorsInTenPercent(data) {
         };
 
         list_of_all_members.push(fullName);
-       var number_of_all_members = list_of_all_members.length;
-        var number_of_persons_in_10prc = number_of_all_members/10
-    
-        
+        var number_of_all_members = list_of_all_members.length;
+        var number_of_persons_in_10prc = number_of_all_members / 10
 
-        } 
 
-   statistics.number_of_senators = number_of_persons_in_10prc;
+
+    }
+
+    statistics.number_of_senators = number_of_persons_in_10prc;
 
 }
 
@@ -346,5 +346,55 @@ function findMostLoyalSenators() {
         statistics.top_loyalty2 = top_number_party_votes;
         statistics.top_loyalty3 = top_percentage_party_votes;
 
+    }
+}
+
+function sortTable1(bottom_attendance, sortColumn) {
+    var tableData = document.getElementById("bottom_attendance_table").getElementsByTagName("tbody").item(0);
+    var rowData = tableData.getElementsByTagName('tr');
+    for (var i = 0; i < rowData.length - 1; i++) {
+        for (var j = 0; j < rowData.length - (i + 1); j++) {
+            if (Number(rowData.item(j).getElementsByTagName('td').item(2).innerHTML.replace(/[^0-9\.]+/g, "")) < Number(rowData.item(j + 1).getElementsByTagName('td').item(2).innerHTML.replace(/[^0-9\.]+/g, ""))) {
+                tableData.insertBefore(rowData.item(j + 1), rowData.item(j));
+            }
+        }
+    }
+}
+
+function sortTable2(top_attendance_table, sortColumn) {
+    var tableData = document.getElementById("top_attendance_table").getElementsByTagName("tbody").item(0);
+    var rowData = tableData.getElementsByTagName('tr');
+    for (var i = 0; i < rowData.length - 1; i++) {
+        for (var j = 0; j < rowData.length - (i + 1); j++) {
+            if (Number(rowData.item(j).getElementsByTagName('td').item(1).innerHTML.replace(/[^0-9\.]+/g, "")) > Number(rowData.item(j + 1).getElementsByTagName('td').item(1).innerHTML.replace(/[^0-9\.]+/g, ""))) {
+                tableData.insertBefore(rowData.item(j + 1), rowData.item(j));
+            }
+        }
+    }
+}
+
+
+
+function sortTablea(least_loyal_table, sortColumn) {
+    var tableData = document.getElementById("least_loyal_table").getElementsByTagName("tbody").item(0);
+    var rowData = tableData.getElementsByTagName('tr');
+    for (var i = 0; i < rowData.length - 1; i++) {
+        for (var j = 0; j < rowData.length - (i + 1); j++) {
+            if (Number(rowData.item(j).getElementsByTagName('td').item(2).innerHTML.replace(/[^0-9\.]+/g, "")) > Number(rowData.item(j + 1).getElementsByTagName('td').item(2).innerHTML.replace(/[^0-9\.]+/g, ""))) {
+                tableData.insertBefore(rowData.item(j + 1), rowData.item(j));
+            }
+        }
+    }
+}
+
+function sortTableb(most_loyal_table, sortColumn) {
+    var tableData = document.getElementById("most_loyal_table").getElementsByTagName("tbody").item(0);
+    var rowData = tableData.getElementsByTagName('tr');
+    for (var i = 0; i < rowData.length - 1; i++) {
+        for (var j = 0; j < rowData.length - (i + 1); j++) {
+            if (Number(rowData.item(j).getElementsByTagName('td').item(2).innerHTML.replace(/[^0-9\.]+/g, "")) < Number(rowData.item(j + 1).getElementsByTagName('td').item(2).innerHTML.replace(/[^0-9\.]+/g, ""))) {
+                tableData.insertBefore(rowData.item(j + 1), rowData.item(j));
+            }
+        }
     }
 }

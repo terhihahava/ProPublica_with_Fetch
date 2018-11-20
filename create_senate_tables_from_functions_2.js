@@ -22,17 +22,19 @@ fetch(url, {
 
         createSenateAtGlance()
 
-
-
         createArrays(data)
 
         findLeastLoyalSenators()
 
         createLeastLoyal()
 
+        sortTablea()
+
         findMostLoyalSenators()
 
         createMostLoyal()
+
+        sortTableb()
 
     })
 

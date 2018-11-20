@@ -27,9 +27,13 @@ fetch(url, {
 
     createBottomAttendance()
     
+    sortTable1()
+    
     findBestSenators()
     
     createTopAttendance()
+    
+     sortTable2()
        
     })
 
